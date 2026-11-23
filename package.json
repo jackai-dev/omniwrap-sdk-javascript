@@ -1,0 +1,41 @@
+{
+  "name": "omniwrap-sdk",
+  "version": "1.0.0",
+  "omniwrap": {
+    "sourceVersion": "1.0.0",
+    "agentSession": "module"
+  },
+  "main": "./index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "index.js",
+    "index.mjs",
+    "README.md",
+    "api.md",
+    "omniwrap-artifact.json",
+    "index.d.ts",
+    "LICENSE",
+    "agent-session.js",
+    "agent-session.d.ts",
+    "agent-session.json",
+    "AGENT_SESSION.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "default": "./index.js"
+    },
+    "./agent-session": {
+      "types": "./agent-session.d.ts",
+      "require": "./agent-session.js",
+      "default": "./agent-session.js"
+    }
+  },
+  "types": "./index.d.ts",
+  "license": "UNLICENSED"
+}

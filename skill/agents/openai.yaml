@@ -1,0 +1,4 @@
+interface:
+  display_name: "omniwrap Library"
+  short_description: "Build confidently with omniwrap"
+  default_prompt: "Use $use-omniwrap to implement a correct omniwrap integration."

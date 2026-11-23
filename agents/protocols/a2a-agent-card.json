@@ -1,0 +1,416 @@
+{
+  "authentication": {
+    "details": [
+      {
+        "name": "SessionCookie",
+        "scheme": "cookie",
+        "type": "apiKey"
+      }
+    ],
+    "schemes": [
+      "cookie"
+    ]
+  },
+  "capabilities": {
+    "pushNotifications": false,
+    "stateTransitionHistory": true,
+    "streaming": true
+  },
+  "defaultInputModes": [
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "description": "Official OpenAPI 3.1.1 specification for OmniWrap (omniwrap.net): SDK generation, capability evidence, workspace control, and Agentic Packs.",
+  "name": "OmniWrap",
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "description": "Record cancellation intent against the Preview ETag. A repeated idempotent request replays its receipt before rechecking the old ETag. If completion already won the transaction return the unchanged terminal snapshot; acceptance never asserts process termination.",
+      "effect": "write",
+      "id": "cancelPreview",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "527ac8587db539664ca87e4da7fa62cd7fe44d1f6b09795d14522700c9b48f5d",
+      "method": "POST",
+      "name": "cancelPreview",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "c219340fbaa838a3d9953ac03972f2e0c02560e04b5145579a16455620d7fe1a",
+      "path": "/v1/projects/{projectId}/previews/{previewId}/cancel",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "previews"
+      ]
+    },
+    {
+      "description": "Atomically create and activate an immutable configuration revision against the current Project ETag, including first activation. Source must belong to this project and be valid. The engine alone supplies resolved configuration and plan fingerprints. Resolve this fixed profile through the isolated engine boundary; respond201 only once its configuration and plan are admitted. No generator runs inside the control API. Ambiguous transport outcomes require idempotent reconciliation.",
+      "effect": "write",
+      "id": "createConfigurationRevision",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "3493922767f9d1a514a11e104e9ad8da8e98935ddbf3f44cf232f94e6055359a",
+      "method": "POST",
+      "name": "createConfigurationRevision",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "eeddf2bf3aca016c437cb879394229f4a73545511b3a782bac33aa9dac592459",
+      "path": "/v1/projects/{projectId}/configuration-revisions",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "configurations"
+      ]
+    },
+    {
+      "description": "Enqueue a durable preview of the current configuration against the Project ETag. Validate source/config ownership and readiness in the same transaction as job, idempotency record and initial event. Retry only a reconciled terminal predecessor with the same immutable inputs; unknown_result cannot authorize retry.",
+      "effect": "write",
+      "id": "createPreview",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "3493922767f9d1a514a11e104e9ad8da8e98935ddbf3f44cf232f94e6055359a",
+      "method": "POST",
+      "name": "createPreview",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "c219340fbaa838a3d9953ac03972f2e0c02560e04b5145579a16455620d7fe1a",
+      "path": "/v1/projects/{projectId}/previews",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "previews"
+      ]
+    },
+    {
+      "description": "Admit a standalone OpenAPI 3.x JSON/YAML document as exact UTF-8 bytes; the public maximum is 268435456 bytes (256 MiB), with a lower per-instance limit configured by OMNIWRAP_SOURCE_MAX_BYTES (32 MiB by default). No Content-Encoding, multipart, base64 carrier decoding, archive, URL, Git, bundle or external reference fetching. Count actual streamed bytes, not characters or a decoded representation; Content-Length is advisory. Above the effective instance limit, reject with 413 before admission. The isolated engine then normalizes and records pending to valid/invalid. This 202 is byte admission only.",
+      "effect": "write",
+      "id": "createSourceRevision",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "a4714bdd5d70399ee18412371760f4b583082398cd8f49922216f2bf4da68c1c",
+      "method": "POST",
+      "name": "createSourceRevision",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "175a247a5ff826acfaea84f530062251099cb46cdfc91730e0d8763bff8dbf0a",
+      "path": "/v1/projects/{projectId}/source-revisions",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "sources"
+      ]
+    },
+    {
+      "description": "Read verified immutable metadata only. Knowing a hash is not authority; binary/signed downloads and active previews are disabled in this contract slice. IDs come from Preview.primaryArtifacts or Evidence.reportArtifactId; parentage and exact execution binding must match.",
+      "effect": "read",
+      "id": "getArtifact",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "f6533479b06800e8bf1d4f94dfe4c02b33ed57e6a6dbe59e709dca7d7581bbb1",
+      "method": "GET",
+      "name": "getArtifact",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ccc36fb062c6b113df87fbc2fc39176ae5cfa4ebfbbe08cb881064d08af75f3f",
+      "path": "/v1/projects/{projectId}/artifacts/{artifactId}",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "artifacts"
+      ]
+    },
+    {
+      "description": "Read immutable engine configuration projection.",
+      "effect": "read",
+      "id": "getConfigurationRevision",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "ceb55ab70b8750d48382332dfdbc628cc6541cd66a73ed455f164dcb6db4c0b7",
+      "method": "GET",
+      "name": "getConfigurationRevision",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ccc36fb062c6b113df87fbc2fc39176ae5cfa4ebfbbe08cb881064d08af75f3f",
+      "path": "/v1/projects/{projectId}/configuration-revisions/{revisionId}",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "configurations"
+      ]
+    },
+    {
+      "description": "Authorize project and report/preview parentage, then return a verified engine report projection or explicit missing/expired/hash_mismatch. No unvalidated report is rendered as passed.",
+      "effect": "read",
+      "id": "getEvidence",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b4ec9dcda503c34f621211fddb713805f72b36da633b02910ebdf0a485e2fc0e",
+      "method": "GET",
+      "name": "getEvidence",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ccc36fb062c6b113df87fbc2fc39176ae5cfa4ebfbbe08cb881064d08af75f3f",
+      "path": "/v1/projects/{projectId}/evidence/{evidenceId}",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "evidence"
+      ]
+    },
+    {
+      "description": "Read persisted state regardless of job success/failure. eventCursor and lastSequence form an atomic snapshot/replay boundary. primaryArtifacts discovers the admitted SDK package and its canonical manifests; reloading the snapshot preserves access after event retention expires. Null references are not missing success claims.",
+      "effect": "read",
+      "id": "getPreview",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "4a1c90e74ef0ed8c86239d1584baa7ca92791fc64ed4247e068f9094ca7b505b",
+      "method": "GET",
+      "name": "getPreview",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ccc36fb062c6b113df87fbc2fc39176ae5cfa4ebfbbe08cb881064d08af75f3f",
+      "path": "/v1/projects/{projectId}/previews/{previewId}",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "previews"
+      ]
+    },
+    {
+      "description": "Default application/json gives durable replay in ascending sequence, strictly after cursor. Accept:text/event-stream opens a bounded authorized stream; each preview_event has id:<opaque cursor> and one JSON data line matching PreviewEvent, max16384 UTF-8 frame bytes. Comment heartbeat every15s has no cursor. Reconnect reauthorizes and replays persisted events, duplicates must be deduplicated by id. A gap/expired cursor is410 before streaming; authorization denial after headers closes immediately without more data. No event may certify a proof by itself.",
+      "effect": "read",
+      "id": "getPreviewEvents",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "17e92ad782f7ac13a0baab74ef9459b9e188c19e50219512cd7226bcbb2ea227",
+      "method": "GET",
+      "name": "getPreviewEvents",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "26105f712573e38aed3babb9d75999525c96532ebf295a21e910817e0a171b8c",
+      "path": "/v1/projects/{projectId}/previews/{previewId}/events",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "previews"
+      ]
+    },
+    {
+      "description": "Read bounded redacted logs in ascending sequence. Filters are bound into the opaque cursor; no raw file access.",
+      "effect": "read",
+      "id": "getPreviewLogs",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "8cd2bf4b39afd06b9d5132e3260ce6dca349768ee7eff9d72b4d6856e4964935",
+      "method": "GET",
+      "name": "getPreviewLogs",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "26105f712573e38aed3babb9d75999525c96532ebf295a21e910817e0a171b8c",
+      "path": "/v1/projects/{projectId}/previews/{previewId}/logs",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "previews"
+      ]
+    },
+    {
+      "description": "Read project and current immutable configuration reference. Its ETag also exists before first configuration activation.",
+      "effect": "read",
+      "id": "getProject",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "2f0e4eba73f80efa2992566e2111b690f70637efc2118fbcb8c8d6be1fc4412c",
+      "method": "GET",
+      "name": "getProject",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ccc36fb062c6b113df87fbc2fc39176ae5cfa4ebfbbe08cb881064d08af75f3f",
+      "path": "/v1/projects/{projectId}",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "projects"
+      ]
+    },
+    {
+      "description": "Read normalization state and bounded diagnostics. A GET never triggers normalization or generation.",
+      "effect": "read",
+      "id": "getSourceRevision",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "ceb55ab70b8750d48382332dfdbc628cc6541cd66a73ed455f164dcb6db4c0b7",
+      "method": "GET",
+      "name": "getSourceRevision",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ccc36fb062c6b113df87fbc2fc39176ae5cfa4ebfbbe08cb881064d08af75f3f",
+      "path": "/v1/projects/{projectId}/source-revisions/{revisionId}",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "sources"
+      ]
+    },
+    {
+      "description": "Read an existing JackAI authority projection. No account, session, role or entitlement is created here. Missing approved exchange is503 configuration_required.",
+      "effect": "read",
+      "id": "getUserContext",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "getUserContext",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ccc36fb062c6b113df87fbc2fc39176ae5cfa4ebfbbe08cb881064d08af75f3f",
+      "path": "/v1/me/context",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "context"
+      ]
+    },
+    {
+      "description": "List actual gate reports or explicit unavailability, ordered by gateId,id. No score or supported claim is inferred from generation completion.",
+      "effect": "read",
+      "id": "listPreviewEvidence",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "2daee9074397b4d089061e18ace3f1f9e2e2bec8d6cfd3ee3c22dfb4857b824d",
+      "method": "GET",
+      "name": "listPreviewEvidence",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "26105f712573e38aed3babb9d75999525c96532ebf295a21e910817e0a171b8c",
+      "path": "/v1/projects/{projectId}/previews/{previewId}/evidence",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "evidence"
+      ]
+    },
+    {
+      "description": "List authorized previews newest first by createdAt,id, with a cursor-bound high-watermark.",
+      "effect": "read",
+      "id": "listPreviews",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "ddf7ae0fd9c480644fb6252e76a76c5483c08a35485e48593d2409d4174f79e6",
+      "method": "GET",
+      "name": "listPreviews",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "26105f712573e38aed3babb9d75999525c96532ebf295a21e910817e0a171b8c",
+      "path": "/v1/projects/{projectId}/previews",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "previews"
+      ]
+    },
+    {
+      "description": "List projects in the currently authorized JackAI organization before any project is selected. Ascending createdAt,id; stable snapshot pagination; no browser organization override.",
+      "effect": "read",
+      "id": "listProjects",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c4adedf6a1b305eaf67562025b6ff0eb370ec79382740b006e451806543ab452",
+      "method": "GET",
+      "name": "listProjects",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "26105f712573e38aed3babb9d75999525c96532ebf295a21e910817e0a171b8c",
+      "path": "/v1/projects",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET",
+        "projects"
+      ]
+    }
+  ],
+  "url": "https://omniwrap.net",
+  "version": "1.0.0"
+}

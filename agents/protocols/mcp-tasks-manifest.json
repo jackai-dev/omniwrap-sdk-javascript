@@ -1,0 +1,178 @@
+{
+  "lifecycle": {
+    "initialState": "working",
+    "interactiveState": "input_required",
+    "terminalStates": [
+      "completed",
+      "failed",
+      "cancelled",
+      "reconciliation_required"
+    ],
+    "transitions": {
+      "cancelled": [],
+      "completed": [],
+      "failed": [],
+      "input_required": [
+        "cancelled",
+        "completed",
+        "failed",
+        "reconciliation_required",
+        "working"
+      ],
+      "reconciliation_required": [],
+      "working": [
+        "cancelled",
+        "completed",
+        "failed",
+        "input_required",
+        "reconciliation_required",
+        "working"
+      ]
+    }
+  },
+  "operations": [
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "cancelPreview",
+      "path": "/v1/projects/{projectId}/previews/{previewId}/cancel",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "createConfigurationRevision",
+      "path": "/v1/projects/{projectId}/configuration-revisions",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "createPreview",
+      "path": "/v1/projects/{projectId}/previews",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "createSourceRevision",
+      "path": "/v1/projects/{projectId}/source-revisions",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getArtifact",
+      "path": "/v1/projects/{projectId}/artifacts/{artifactId}",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getConfigurationRevision",
+      "path": "/v1/projects/{projectId}/configuration-revisions/{revisionId}",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getEvidence",
+      "path": "/v1/projects/{projectId}/evidence/{evidenceId}",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getPreview",
+      "path": "/v1/projects/{projectId}/previews/{previewId}",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getPreviewEvents",
+      "path": "/v1/projects/{projectId}/previews/{previewId}/events",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getPreviewLogs",
+      "path": "/v1/projects/{projectId}/previews/{previewId}/logs",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getProject",
+      "path": "/v1/projects/{projectId}",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getSourceRevision",
+      "path": "/v1/projects/{projectId}/source-revisions/{revisionId}",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getUserContext",
+      "path": "/v1/me/context",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "listPreviewEvidence",
+      "path": "/v1/projects/{projectId}/previews/{previewId}/evidence",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "listPreviews",
+      "path": "/v1/projects/{projectId}/previews",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "listProjects",
+      "path": "/v1/projects",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    }
+  ],
+  "pollIntervalMs": 1000,
+  "reconciliationPolicy": {
+    "automaticBlindRetry": false,
+    "unconfirmedNonIdempotentWriteState": "reconciliation_required"
+  },
+  "schema": "omniwrap.mcp-tasks/v1",
+  "specificationVersion": "2026-07-28",
+  "states": [
+    "working",
+    "input_required",
+    "completed",
+    "failed",
+    "cancelled",
+    "reconciliation_required"
+  ]
+}

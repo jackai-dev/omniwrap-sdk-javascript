@@ -1,0 +1,2844 @@
+{
+  "archive_identity": "caller supplies the SHA-256 of the exact installed wheel or npm archive",
+  "checkpoint_protocol": "omniwrap.agent-session/v1",
+  "code_map": {
+    "effect_edges": [
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "cancelPreview",
+        "resource": "/v1/projects/{projectId}/previews/{previewId}/cancel"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "createConfigurationRevision",
+        "resource": "/v1/projects/{projectId}/configuration-revisions"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "createConfigurationRevision",
+        "resource": "/v1/projects/{projectId}/configuration-revisions/{revisionId}"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "createPreview",
+        "resource": "/v1/projects/{projectId}/previews"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "createPreview",
+        "resource": "/v1/projects/{projectId}/previews/{previewId}"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "createSourceRevision",
+        "resource": "/v1/projects/{projectId}/source-revisions"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "createSourceRevision",
+        "resource": "/v1/projects/{projectId}/source-revisions/{revisionId}"
+      }
+    ],
+    "language": "javascript",
+    "operation_partition": {
+      "mutating": [
+        "cancelPreview",
+        "createConfigurationRevision",
+        "createPreview",
+        "createSourceRevision"
+      ],
+      "read_only": [
+        "getArtifact",
+        "getConfigurationRevision",
+        "getEvidence",
+        "getPreview",
+        "getPreviewEvents",
+        "getPreviewLogs",
+        "getProject",
+        "getSourceRevision",
+        "getUserContext",
+        "listPreviewEvidence",
+        "listPreviews",
+        "listProjects"
+      ]
+    },
+    "schema": "omniwrap.agent-code-map/v1",
+    "source_sha256": "2289bcb0d661bdea6dd47c7967f37aace7d3a152e18e7d2f64c08514fb73e795",
+    "symbols": {
+      "cancelPreview": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "cancelPreview",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "previewId",
+          "If_Match",
+          "Idempotency_Key",
+          "X_CSRF_Token",
+          "body"
+        ],
+        "symbol": "SDKClient.cancelPreview",
+        "writes": [
+          "/v1/projects/{projectId}/previews/{previewId}/cancel"
+        ]
+      },
+      "createConfigurationRevision": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "createConfigurationRevision",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "If_Match",
+          "Idempotency_Key",
+          "X_CSRF_Token",
+          "body"
+        ],
+        "symbol": "SDKClient.createConfigurationRevision",
+        "writes": [
+          "/v1/projects/{projectId}/configuration-revisions",
+          "/v1/projects/{projectId}/configuration-revisions/{revisionId}"
+        ]
+      },
+      "createPreview": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "createPreview",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "If_Match",
+          "Idempotency_Key",
+          "X_CSRF_Token",
+          "body"
+        ],
+        "symbol": "SDKClient.createPreview",
+        "writes": [
+          "/v1/projects/{projectId}/previews",
+          "/v1/projects/{projectId}/previews/{previewId}"
+        ]
+      },
+      "createSourceRevision": {
+        "compensation": null,
+        "execution": "unsupported-stream-or-upload",
+        "method": "createSourceRevision",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "Idempotency_Key",
+          "X_CSRF_Token",
+          "displayName",
+          "body"
+        ],
+        "symbol": "SDKClient.createSourceRevision",
+        "writes": [
+          "/v1/projects/{projectId}/source-revisions",
+          "/v1/projects/{projectId}/source-revisions/{revisionId}"
+        ]
+      },
+      "getArtifact": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "getArtifact",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "artifactId"
+        ],
+        "symbol": "SDKClient.getArtifact",
+        "writes": []
+      },
+      "getConfigurationRevision": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "getConfigurationRevision",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "revisionId"
+        ],
+        "symbol": "SDKClient.getConfigurationRevision",
+        "writes": []
+      },
+      "getEvidence": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "getEvidence",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "evidenceId"
+        ],
+        "symbol": "SDKClient.getEvidence",
+        "writes": []
+      },
+      "getPreview": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "getPreview",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "previewId"
+        ],
+        "symbol": "SDKClient.getPreview",
+        "writes": []
+      },
+      "getPreviewEvents": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "getPreviewEvents",
+        "mutation": false,
+        "optional_arguments": [
+          "cursor",
+          "limit",
+          "Last_Event_ID"
+        ],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "previewId"
+        ],
+        "symbol": "SDKClient.getPreviewEvents",
+        "writes": []
+      },
+      "getPreviewLogs": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "getPreviewLogs",
+        "mutation": false,
+        "optional_arguments": [
+          "cursor",
+          "limit",
+          "level",
+          "phaseId"
+        ],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "previewId"
+        ],
+        "symbol": "SDKClient.getPreviewLogs",
+        "writes": []
+      },
+      "getProject": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "getProject",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId"
+        ],
+        "symbol": "SDKClient.getProject",
+        "writes": []
+      },
+      "getSourceRevision": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "getSourceRevision",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "revisionId"
+        ],
+        "symbol": "SDKClient.getSourceRevision",
+        "writes": []
+      },
+      "getUserContext": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "getUserContext",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "SDKClient.getUserContext",
+        "writes": []
+      },
+      "listPreviewEvidence": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "listPreviewEvidence",
+        "mutation": false,
+        "optional_arguments": [
+          "cursor",
+          "limit",
+          "gateId",
+          "availability"
+        ],
+        "reads": [],
+        "required_arguments": [
+          "projectId",
+          "previewId"
+        ],
+        "symbol": "SDKClient.listPreviewEvidence",
+        "writes": []
+      },
+      "listPreviews": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "listPreviews",
+        "mutation": false,
+        "optional_arguments": [
+          "cursor",
+          "limit"
+        ],
+        "reads": [],
+        "required_arguments": [
+          "projectId"
+        ],
+        "symbol": "SDKClient.listPreviews",
+        "writes": []
+      },
+      "listProjects": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "listProjects",
+        "mutation": false,
+        "optional_arguments": [
+          "cursor",
+          "limit",
+          "query"
+        ],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "SDKClient.listProjects",
+        "writes": []
+      }
+    }
+  },
+  "entrypoint": "./agent-session",
+  "execution_boundary": "caller-owned SDK process; trusted cooperative provider and persistence callbacks; no hosted model or arbitrary-code sandbox",
+  "language": "javascript",
+  "operations": {
+    "cancelPreview": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "previewId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "If_Match",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/StrongEtag",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "Idempotency_Key",
+          "required": true,
+          "schema": {
+            "constraints": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{16,128}$"
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string",
+            "unsupported": "regex-constrained arguments are unsupported in bounded sessions; use separately qualified caller-controlled SDK execution"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "X_CSRF_Token",
+          "required": true,
+          "schema": {
+            "constraints": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{32,256}$"
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string",
+            "unsupported": "regex-constrained arguments are unsupported in bounded sessions; use separately qualified caller-controlled SDK execution"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/CancelRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "cancelPreview"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.idempotency-key"
+            ],
+            "sources": [
+              "parameter"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-schema"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}/cancel"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.conflict-response",
+              "effects.preconditions.if-match",
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.precondition-failed-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "parameter",
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "header-present",
+              "name": "If-Match"
+            },
+            {
+              "kind": "resource-absent",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}/cancel"
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}/cancel"
+            },
+            {
+              "kind": "resource-version-matches",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}/cancel"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/v1/projects/{projectId}/previews/{previewId}/cancel"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Record cancellation intent against the Preview ETag. A repeated idempotent request replays its receipt before rechecking the old ETag. If completion already won the transaction return the unchanged terminal snapshot; acceptance never asserts process termination.",
+        "summary": "cancelPreview"
+      },
+      "method": "cancelPreview",
+      "mutation": true,
+      "optional_bundle": null
+    },
+    "createConfigurationRevision": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "If_Match",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/StrongEtag",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "Idempotency_Key",
+          "required": true,
+          "schema": {
+            "constraints": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{16,128}$"
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string",
+            "unsupported": "regex-constrained arguments are unsupported in bounded sessions; use separately qualified caller-controlled SDK execution"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "X_CSRF_Token",
+          "required": true,
+          "schema": {
+            "constraints": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{32,256}$"
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string",
+            "unsupported": "regex-constrained arguments are unsupported in bounded sessions; use separately qualified caller-controlled SDK execution"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ConfigurationRequest",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "createConfigurationRevision"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.idempotency-key"
+            ],
+            "sources": [
+              "parameter"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-codes"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/configuration-revisions/{revisionId}"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.conflict-response",
+              "effects.preconditions.if-match",
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.precondition-failed-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "parameter",
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "header-present",
+              "name": "If-Match"
+            },
+            {
+              "kind": "resource-absent",
+              "resource": "/v1/projects/{projectId}/configuration-revisions/{revisionId}"
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/configuration-revisions"
+            },
+            {
+              "kind": "resource-version-matches",
+              "resource": "/v1/projects/{projectId}/configuration-revisions"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/v1/projects/{projectId}/configuration-revisions",
+            "/v1/projects/{projectId}/configuration-revisions/{revisionId}"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Atomically create and activate an immutable configuration revision against the current Project ETag, including first activation. Source must belong to this project and be valid. The engine alone supplies resolved configuration and plan fingerprints. Resolve this fixed profile through the isolated engine boundary; respond201 only once its configuration and plan are admitted. No generator runs inside the control API. Ambiguous transport outcomes require idempotent reconciliation.",
+        "summary": "createConfigurationRevision"
+      },
+      "method": "createConfigurationRevision",
+      "mutation": true,
+      "optional_bundle": null
+    },
+    "createPreview": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "If_Match",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/StrongEtag",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "Idempotency_Key",
+          "required": true,
+          "schema": {
+            "constraints": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{16,128}$"
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string",
+            "unsupported": "regex-constrained arguments are unsupported in bounded sessions; use separately qualified caller-controlled SDK execution"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "X_CSRF_Token",
+          "required": true,
+          "schema": {
+            "constraints": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{32,256}$"
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string",
+            "unsupported": "regex-constrained arguments are unsupported in bounded sessions; use separately qualified caller-controlled SDK execution"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/PreviewRequest",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "createPreview"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.idempotency-key"
+            ],
+            "sources": [
+              "parameter"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-schema"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.conflict-response",
+              "effects.preconditions.if-match",
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.precondition-failed-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "parameter",
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "header-present",
+              "name": "If-Match"
+            },
+            {
+              "kind": "resource-absent",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}"
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/previews"
+            },
+            {
+              "kind": "resource-version-matches",
+              "resource": "/v1/projects/{projectId}/previews"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/v1/projects/{projectId}/previews",
+            "/v1/projects/{projectId}/previews/{previewId}"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Enqueue a durable preview of the current configuration against the Project ETag. Validate source/config ownership and readiness in the same transaction as job, idempotency record and initial event. Retry only a reconciled terminal predecessor with the same immutable inputs; unknown_result cannot authorize retry.",
+        "summary": "createPreview"
+      },
+      "method": "createPreview",
+      "mutation": true,
+      "optional_bundle": null
+    },
+    "createSourceRevision": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "Idempotency_Key",
+          "required": true,
+          "schema": {
+            "constraints": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{16,128}$"
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string",
+            "unsupported": "regex-constrained arguments are unsupported in bounded sessions; use separately qualified caller-controlled SDK execution"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "X_CSRF_Token",
+          "required": true,
+          "schema": {
+            "constraints": {
+              "maxLength": 256,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{32,256}$"
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string",
+            "unsupported": "regex-constrained arguments are unsupported in bounded sessions; use separately qualified caller-controlled SDK execution"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "displayName",
+          "required": true,
+          "schema": {
+            "constraints": {
+              "maxLength": 200,
+              "minLength": 1
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "createSourceRevision"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.idempotency-key"
+            ],
+            "sources": [
+              "parameter"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-schema"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/source-revisions/{revisionId}"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.conflict-response",
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-absent",
+              "resource": "/v1/projects/{projectId}/source-revisions/{revisionId}"
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/source-revisions"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/v1/projects/{projectId}/source-revisions",
+            "/v1/projects/{projectId}/source-revisions/{revisionId}"
+          ]
+        }
+      },
+      "execution": "unsupported-stream-or-upload",
+      "intent": {
+        "description": "Admit a standalone OpenAPI 3.x JSON/YAML document as exact UTF-8 bytes; the public maximum is 268435456 bytes (256 MiB), with a lower per-instance limit configured by OMNIWRAP_SOURCE_MAX_BYTES (32 MiB by default). No Content-Encoding, multipart, base64 carrier decoding, archive, URL, Git, bundle or external reference fetching. Count actual streamed bytes, not characters or a decoded representation; Content-Length is advisory. Above the effective instance limit, reject with 413 before admission. The isolated engine then normalizes and records pending to valid/invalid. This 202 is byte admission only.",
+        "summary": "createSourceRevision"
+      },
+      "method": "createSourceRevision",
+      "mutation": true,
+      "optional_bundle": null
+    },
+    "getArtifact": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "artifactId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getArtifact"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/artifacts/{artifactId}"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Read verified immutable metadata only. Knowing a hash is not authority; binary/signed downloads and active previews are disabled in this contract slice. IDs come from Preview.primaryArtifacts or Evidence.reportArtifactId; parentage and exact execution binding must match.",
+        "summary": "getArtifact"
+      },
+      "method": "getArtifact",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "getConfigurationRevision": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "revisionId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getConfigurationRevision"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/configuration-revisions/{revisionId}"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Read immutable engine configuration projection.",
+        "summary": "getConfigurationRevision"
+      },
+      "method": "getConfigurationRevision",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "getEvidence": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "evidenceId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getEvidence"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/evidence/{evidenceId}"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Authorize project and report/preview parentage, then return a verified engine report projection or explicit missing/expired/hash_mismatch. No unvalidated report is rendered as passed.",
+        "summary": "getEvidence"
+      },
+      "method": "getEvidence",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "getPreview": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "previewId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getPreview"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Read persisted state regardless of job success/failure. eventCursor and lastSequence form an atomic snapshot/replay boundary. primaryArtifacts discovers the admitted SDK package and its canonical manifests; reloading the snapshot preserves access after event retention expires. Null references are not missing success claims.",
+        "summary": "getPreview"
+      },
+      "method": "getPreview",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "getPreviewEvents": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "previewId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "cursor",
+          "required": false,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/Cursor",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "limit",
+          "required": false,
+          "schema": {
+            "constraints": {
+              "maximum": 100,
+              "minimum": 1
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "integer"
+          }
+        },
+        {
+          "caller_only": true,
+          "name": "Last_Event_ID",
+          "required": false,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/Cursor",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getPreviewEvents"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}/events"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Default application/json gives durable replay in ascending sequence, strictly after cursor. Accept:text/event-stream opens a bounded authorized stream; each preview_event has id:<opaque cursor> and one JSON data line matching PreviewEvent, max16384 UTF-8 frame bytes. Comment heartbeat every15s has no cursor. Reconnect reauthorizes and replays persisted events, duplicates must be deduplicated by id. A gap/expired cursor is410 before streaming; authorization denial after headers closes immediately without more data. No event may certify a proof by itself.",
+        "summary": "getPreviewEvents"
+      },
+      "method": "getPreviewEvents",
+      "mutation": false,
+      "optional_bundle": [
+        "cursor",
+        "limit",
+        "Last_Event_ID"
+      ]
+    },
+    "getPreviewLogs": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "previewId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "cursor",
+          "required": false,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/Cursor",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "limit",
+          "required": false,
+          "schema": {
+            "constraints": {
+              "maximum": 100,
+              "minimum": 1
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "integer"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "level",
+          "required": false,
+          "schema": {
+            "constraints": {},
+            "enum": [
+              "info",
+              "warning",
+              "error"
+            ],
+            "nullable": false,
+            "required": [],
+            "type": "string"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "phaseId",
+          "required": false,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getPreviewLogs"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}/logs"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Read bounded redacted logs in ascending sequence. Filters are bound into the opaque cursor; no raw file access.",
+        "summary": "getPreviewLogs"
+      },
+      "method": "getPreviewLogs",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "getProject": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getProject"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Read project and current immutable configuration reference. Its ETag also exists before first configuration activation.",
+        "summary": "getProject"
+      },
+      "method": "getProject",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "getSourceRevision": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "revisionId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getSourceRevision"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/source-revisions/{revisionId}"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Read normalization state and bounded diagnostics. A GET never triggers normalization or generation.",
+        "summary": "getSourceRevision"
+      },
+      "method": "getSourceRevision",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "getUserContext": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getUserContext"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Read an existing JackAI authority projection. No account, session, role or entitlement is created here. Missing approved exchange is503 configuration_required.",
+        "summary": "getUserContext"
+      },
+      "method": "getUserContext",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "listPreviewEvidence": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "previewId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "cursor",
+          "required": false,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/Cursor",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "limit",
+          "required": false,
+          "schema": {
+            "constraints": {
+              "maximum": 100,
+              "minimum": 1
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "integer"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "gateId",
+          "required": false,
+          "schema": {
+            "constraints": {
+              "maxLength": 128,
+              "minLength": 1
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "availability",
+          "required": false,
+          "schema": {
+            "constraints": {},
+            "enum": [
+              "available",
+              "missing",
+              "expired",
+              "hash_mismatch"
+            ],
+            "nullable": false,
+            "required": [],
+            "type": "string"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "listPreviewEvidence"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/previews/{previewId}/evidence"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "List actual gate reports or explicit unavailability, ordered by gateId,id. No score or supported claim is inferred from generation completion.",
+        "summary": "listPreviewEvidence"
+      },
+      "method": "listPreviewEvidence",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "listPreviews": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "projectId",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/OpaqueId",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "cursor",
+          "required": false,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/Cursor",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "limit",
+          "required": false,
+          "schema": {
+            "constraints": {
+              "maximum": 100,
+              "minimum": 1
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "integer"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "listPreviews"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.not-found-response",
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "response-codes",
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            },
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/projects/{projectId}/previews"
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "List authorized previews newest first by createdAt,id, with a cursor-bound high-watermark.",
+        "summary": "listPreviews"
+      },
+      "method": "listPreviews",
+      "mutation": false,
+      "optional_bundle": null
+    },
+    "listProjects": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "cursor",
+          "required": false,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/Cursor",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "limit",
+          "required": false,
+          "schema": {
+            "constraints": {
+              "maximum": 100,
+              "minimum": 1
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "integer"
+          }
+        },
+        {
+          "caller_only": false,
+          "name": "query",
+          "required": false,
+          "schema": {
+            "constraints": {
+              "maxLength": 128,
+              "minLength": 1
+            },
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "string"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "listProjects"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "SessionCookie"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "List projects in the currently authorized JackAI organization before any project is selected. Ascending createdAt,id; stable snapshot pagination; no browser organization override.",
+        "summary": "listProjects"
+      },
+      "method": "listProjects",
+      "mutation": false,
+      "optional_bundle": null
+    }
+  },
+  "provider_protocol": "omniwrap.agent-provider/v1",
+  "schema": "omniwrap.agent-session-discovery/v1",
+  "source_sha256": "2289bcb0d661bdea6dd47c7967f37aace7d3a152e18e7d2f64c08514fb73e795"
+}

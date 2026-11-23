@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "payload": {
+      "type": "object"
+    },
+    "protocol": {
+      "const": "ag-ui/1.0",
+      "type": "string"
+    },
+    "runId": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "seq": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "threadId": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "RUN_STARTED",
+        "TOOL_CALL_START",
+        "TOOL_CALL_ARGS",
+        "TOOL_CALL_END",
+        "STATE_DELTA",
+        "TEXT_MESSAGE_CONTENT",
+        "RUN_FINISHED",
+        "RUN_ERROR"
+      ],
+      "type": "string"
+    }
+  },
+  "protocol": "ag-ui/1.0",
+  "required": [
+    "protocol",
+    "seq",
+    "type",
+    "runId",
+    "threadId",
+    "payload"
+  ],
+  "title": "OmniWrap AG-UI Event Envelope",
+  "type": "object"
+}

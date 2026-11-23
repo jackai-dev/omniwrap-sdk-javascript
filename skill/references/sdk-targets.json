@@ -1,0 +1,132 @@
+{
+  "contract_fingerprint": "2289bcb0d661bdea6dd47c7967f37aace7d3a152e18e7d2f64c08514fb73e795",
+  "sdk_targets_version": "1.1.0",
+  "targets": [
+    {
+      "identity": {
+        "coordinates": "omniwrap-sdk@1.0.0",
+        "ecosystem": "npm",
+        "entry": "",
+        "import": "const sdk = require(\"omniwrap-sdk\");"
+      },
+      "operations": {
+        "cancelPreview": {
+          "member": "previews.cancel",
+          "method": "POST",
+          "path": "/v1/projects/{projectId}/previews/{previewId}/cancel",
+          "resource": "previews",
+          "signature": "client.previews.cancel(projectId, previewId, If_Match, Idempotency_Key, X_CSRF_Token, body, requestOptions?)"
+        },
+        "createConfigurationRevision": {
+          "member": "configurations.createRevision",
+          "method": "POST",
+          "path": "/v1/projects/{projectId}/configuration-revisions",
+          "resource": "configurations",
+          "signature": "client.configurations.createRevision(projectId, If_Match, Idempotency_Key, X_CSRF_Token, body, requestOptions?)"
+        },
+        "createPreview": {
+          "member": "previews.create",
+          "method": "POST",
+          "path": "/v1/projects/{projectId}/previews",
+          "resource": "previews",
+          "signature": "client.previews.create(projectId, If_Match, Idempotency_Key, X_CSRF_Token, body, requestOptions?)"
+        },
+        "createSourceRevision": {
+          "member": "sources.createRevision",
+          "method": "POST",
+          "path": "/v1/projects/{projectId}/source-revisions",
+          "resource": "sources",
+          "signature": "client.sources.createRevision(projectId, Idempotency_Key, X_CSRF_Token, displayName, body, requestOptions?)"
+        },
+        "getArtifact": {
+          "member": "artifacts.get",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}/artifacts/{artifactId}",
+          "resource": "artifacts",
+          "signature": "client.artifacts.get(projectId, artifactId, requestOptions?)"
+        },
+        "getConfigurationRevision": {
+          "member": "configurations.getRevision",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}/configuration-revisions/{revisionId}",
+          "resource": "configurations",
+          "signature": "client.configurations.getRevision(projectId, revisionId, requestOptions?)"
+        },
+        "getEvidence": {
+          "member": "evidence.get",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}/evidence/{evidenceId}",
+          "resource": "evidence",
+          "signature": "client.evidence.get(projectId, evidenceId, requestOptions?)"
+        },
+        "getPreview": {
+          "member": "previews.get",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}/previews/{previewId}",
+          "resource": "previews",
+          "signature": "client.previews.get(projectId, previewId, requestOptions?)"
+        },
+        "getPreviewEvents": {
+          "member": "previews.getEvents",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}/previews/{previewId}/events",
+          "resource": "previews",
+          "signature": "client.previews.getEvents(projectId, previewId, optionalArguments?, requestOptions?)"
+        },
+        "getPreviewLogs": {
+          "member": "previews.getLogs",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}/previews/{previewId}/logs",
+          "resource": "previews",
+          "signature": "client.previews.getLogs(projectId, previewId, cursor?, limit?, level?, phaseId?, requestOptions?)"
+        },
+        "getProject": {
+          "member": "projects.get",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}",
+          "resource": "projects",
+          "signature": "client.projects.get(projectId, requestOptions?)"
+        },
+        "getSourceRevision": {
+          "member": "sources.getRevision",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}/source-revisions/{revisionId}",
+          "resource": "sources",
+          "signature": "client.sources.getRevision(projectId, revisionId, requestOptions?)"
+        },
+        "getUserContext": {
+          "member": "context.getUser",
+          "method": "GET",
+          "path": "/v1/me/context",
+          "resource": "context",
+          "signature": "client.context.getUser(requestOptions?)"
+        },
+        "listPreviewEvidence": {
+          "member": "evidence.listPreview",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}/previews/{previewId}/evidence",
+          "resource": "evidence",
+          "signature": "client.evidence.listPreview(projectId, previewId, cursor?, limit?, gateId?, availability?, requestOptions?)"
+        },
+        "listPreviews": {
+          "member": "previews.list",
+          "method": "GET",
+          "path": "/v1/projects/{projectId}/previews",
+          "resource": "previews",
+          "signature": "client.previews.list(projectId, cursor?, limit?, requestOptions?)"
+        },
+        "listProjects": {
+          "member": "projects.list",
+          "method": "GET",
+          "path": "/v1/projects",
+          "resource": "projects",
+          "signature": "client.projects.list(cursor?, limit?, query?, requestOptions?)"
+        }
+      },
+      "package_directory": "../omniwrap-sdk",
+      "package_manifest": "package.json",
+      "reference": "api.md",
+      "renderer": "javascript"
+    }
+  ]
+}
